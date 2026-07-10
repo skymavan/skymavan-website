@@ -52,7 +52,7 @@ jobs:
 
       - name: Build static export
         env:
-          GITHUB_PAGES_CUSTOM_DOMAIN: ${{ vars.GITHUB_PAGES_CUSTOM_DOMAIN || 'false' }}
+          PAGES_CUSTOM_DOMAIN: ${{ vars.PAGES_CUSTOM_DOMAIN || 'false' }}
           NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
         run: pnpm build
 

@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const repository = process.env.GITHUB_REPOSITORY?.split("/")[1];
 const derivedRepositoryPath =
   process.env.GITHUB_ACTIONS === "true" &&
-  process.env.GITHUB_PAGES_CUSTOM_DOMAIN !== "true" &&
+  process.env.PAGES_CUSTOM_DOMAIN !== "true" &&
   repository &&
   !repository.endsWith(".github.io")
     ? `/${repository}`

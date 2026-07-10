@@ -37,7 +37,7 @@ The production export is written to `out/`.
 The workflow in `.github/workflows/deploy-pages.yml` validates and deploys pushes to `main`. In repository settings:
 
 1. Set Pages source to **GitHub Actions**.
-2. For `skymavan.com`, set the repository variable `GITHUB_PAGES_CUSTOM_DOMAIN=true`, then configure the domain in Pages settings after the first successful deployment.
+2. For `skymavan.com`, set the repository variable `PAGES_CUSTOM_DOMAIN=true`, then configure the domain in Pages settings after the first successful deployment.
 3. For a repository-path deployment, leave that variable unset. The build derives `/<repository-name>` from `GITHUB_REPOSITORY`.
 4. `NEXT_PUBLIC_BASE_PATH` can override the derived path for a nonstandard deployment.
 
