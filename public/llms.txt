@@ -1,0 +1,23 @@
+# SkyMavan
+
+SkyMavan is an AI product studio that designs and builds custom AI agents, workflow automation, integrations, and AI SaaS products for startups and growing businesses.
+
+## Primary pages and sections
+
+- Website: https://skymavan.com/
+- Services: https://skymavan.com/#services
+- Approach: https://skymavan.com/#approach
+- Pricing: https://skymavan.com/#pricing
+- Frequently asked questions: https://skymavan.com/#faq
+- Contact: https://skymavan.com/#contact
+- Machine-readable pricing: https://skymavan.com/pricing.md
+
+## Services
+
+- Custom AI agents: research, qualification, customer operations, knowledge work, and internal decision support with human approvals.
+- Workflow automation and integrations: multi-step operations, data processing, approval routing, and legacy-platform AI enablement.
+- AI SaaS and product engineering: AI product MVPs, RAG and knowledge products, multi-tenant applications, and AI features for existing products.
+
+## Contact
+
+Email: hello@skymavan.com
