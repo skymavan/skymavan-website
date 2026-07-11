@@ -1,70 +1,52 @@
-# SkyMavan Living Systems Design System
+# SkyMavan Celestial Instrument Design System
 
 ## Direction
 
-Living Systems combines deep moss, sky-blue illumination, organic 3D intelligence, asymmetrical composition, and restrained technical detail. Light mode resembles a white research studio where living systems are being examined; dark mode resembles the same instrument operating after hours.
+Celestial Instrument pairs a cinematic star-field working scene with precise system language. The page should feel expansive at first contact and increasingly concrete as visitors move into services, operating controls, process, pricing, and contact. SkyMavan is always written with a capital S and M and never carries a registered-mark symbol.
 
 ## Color
 
-All colors use OKLCH custom properties.
+All semantic colors use HSL custom properties. The site is dark-only.
 
-| Role | Light | Dark |
+| Role | HSL | Hex |
 | --- | --- | --- |
-| Background | `oklch(1 0 0)` | `oklch(0.08 0 0)` |
-| Surface | `oklch(0.965 0.008 140)` | `oklch(0.14 0.018 140)` |
-| Ink | `oklch(0.17 0.025 140)` | `oklch(0.96 0.006 140)` |
-| Muted ink | `oklch(0.42 0.025 140)` | `oklch(0.74 0.018 140)` |
-| Primary moss | `oklch(0.30 0.096 140)` | `oklch(0.46 0.11 140)` |
-| Sky accent | `oklch(0.34 0.105 225)` | `oklch(0.67 0.13 225)` |
-| Focus | `oklch(0.50 0.15 225)` | `oklch(0.50 0.15 225)` |
+| Abyss Navy background | `201 100% 13%` | `#002B42` |
+| Deep Current surface | `201 67% 8%` | `#071A24` |
+| Star White foreground | `0 0% 100%` | `#FFFFFF` |
+| Mist secondary text | `240 3% 66%` | `#A6A6AB` |
+| Signal Blue | `194 71% 69%` | `#79CFE8` |
+| Human Gold | `42 100% 71%` | `#FFD36A` |
 
-Primary filled controls use near-white text. The brighter dark-mode sky color is for links, indicators, and illustration light, not large filled controls. Body contrast must remain at least 4.5:1; the chosen ink pairs exceed 8:1.
+Signal Blue identifies system routes, links, and focus. Human Gold is reserved for human approval and selection. Body text and controls must meet WCAG 2.2 AA contrast.
 
 ## Typography
 
-- Display: Anybody variable, weights 600–800.
-- Body: Source Sans 3 variable, weights 400–700.
-- Hero ceiling: `clamp(3rem, 7vw, 6rem)` with `-0.035em` letter spacing.
-- H1–H3 use balanced wrapping. Prose uses pretty wrapping and a 65–70 character measure.
-- Body text defaults to 18px/1.6 on desktop and 16px/1.6 on smaller screens.
+- Display and wordmark: Instrument Serif 400, normal and italic.
+- Body and interface: Inter 400/500.
+- Hero: `clamp(3.5rem, 8vw, 7.7rem)` with tight relative tracking.
+- H1–H3 use balanced wrapping; prose uses pretty wrapping and a readable measure.
 
-## Layout
+## Layout and Components
 
-- Maximum content width: 80rem, with fluid gutters from 1rem to 2.5rem.
-- Use asymmetric two-column compositions where text and imagery have unequal visual weight.
-- Service content is arranged as editorial rows, not an identical card grid.
-- Cards are reserved for pricing, where comparison is the correct affordance.
-- Standard component radius is 12px; compact controls use 8px; pills are reserved for tags and compact actions.
-- Use borders or restrained short shadows, never border plus wide ghost shadow.
+- Maximum content width is 80rem with fluid mobile gutters.
+- The hero occupies at least `100svh`; text sits in the star-field negative space with no tint, wash, or gradient overlay.
+- Services use editorial rows; process uses a real ordered timeline; cards are reserved for pricing comparisons.
+- The header floats above the hero. Liquid glass is limited to navigation and primary journey controls.
+- Content and form surfaces are opaque Deep Current or Abyss Navy with restrained borders.
+- The system route uses Input → Reason → Human approval → Act. Blue marks system stages; gold marks only human approval.
+- Mobile navigation remains an accessible Sheet with managed focus.
 
-## Components
+## Imagery and Motion
 
-- Header: opaque sticky surface with visible current-section and focus states.
-- Buttons: primary moss fill, secondary outline, text-link tertiary action.
-- Mobile navigation: accessible sheet with focus management.
-- FAQ: semantic accordion with visible focus and no hidden answer text in schema.
-- Form: persistent labels, readable help/error text, 44px minimum control height.
-- Theme control: light, dark, and system choices with icon plus accessible label.
+- The decorative hero video is remote; local AVIF and WebP posters provide loading, failure, and reduced-motion fallbacks.
+- Do not add color overlays, decorative blobs, radial gradients, or generic AI glow effects.
+- Hero copy uses one three-stage fade-rise sequence: headline at 0ms, description at 200ms, actions at 400ms.
+- Controls use the standard easing `cubic-bezier(0.16, 1, 0.3, 1)`.
+- Reduced motion omits the video and all entrance choreography while keeping content visible.
 
-## Imagery
+## Responsive and Accessibility
 
-- The WebGL hero visualizes a living agent network with a central reasoning core, data inputs, tools, a human approval node, and outcomes.
-- Generated fallback posters preserve the same material language in both themes.
-- One architectural photograph may be blended into the operations section as a metaphor for systems structure. It must be stored locally, optimized, credited in project documentation, and never imply client or team identity.
-
-## Motion
-
-- Standard easing: `[0.16, 1, 0.3, 1]`.
-- Durations range from 180ms for controls to 700ms for first-load choreography.
-- No bounce, elastic movement, universal fade-up reveals, or animated layout properties.
-- WebGL pointer response stays within six degrees and pauses while offscreen.
-- Reduced-motion mode removes parallax, continuous orbital movement, stagger, and smooth scrolling; content remains visible by default.
-
-## Responsive & Accessibility
-
-- Primary validation widths: 320, 768, 1024, and 1440 pixels.
-- Under 768px, replace WebGL with the relevant static poster.
-- Never hide content behind animation state.
-- Use semantic landmarks and one H1.
-- All interactive elements require a visible focus ring using the focus token.
-- Respect safe-area insets and prevent horizontal overflow at every breakpoint.
+- Validate at 320, 768, 1024, and 1440 pixels.
+- Use one H1, semantic landmarks, labelled ordered routes, and persistent form labels.
+- All interactive targets are at least 44px and keep visible keyboard focus.
+- Respect safe-area insets and prevent horizontal overflow.

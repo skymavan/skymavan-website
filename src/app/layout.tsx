@@ -1,19 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Anybody, Source_Sans_3 } from "next/font/google";
+import { Instrument_Serif, Inter } from "next/font/google";
 
-import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/content/site";
 
 import "./globals.css";
 
-const anybody = Anybody({
-  variable: "--font-anybody",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-display",
+  weight: "400",
+  style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
 });
 
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
+const inter = Inter({
+  variable: "--font-body",
+  weight: ["400", "500"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -29,9 +31,9 @@ export const metadata: Metadata = {
     type: "website",
     url: siteConfig.canonicalUrl,
     siteName: siteConfig.name,
-    title: "SkyMavan | AI systems that move work forward",
+    title: "SkyMavan | Intelligence built for real work",
     description:
-      "Custom AI agents, workflow automation, and AI SaaS products designed for real operations.",
+      "Custom AI agents, connected automations, and AI products designed for dependable progress.",
     images: [
       {
         url: "/opengraph-image.png",
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SkyMavan | AI systems that move work forward",
+    title: "SkyMavan | Intelligence built for real work",
     description:
       "Custom AI agents, workflow automation, and AI SaaS products designed for real operations.",
     images: ["/opengraph-image.png"],
@@ -51,20 +53,18 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "light dark",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0b0d0b" },
-  ],
+  colorScheme: "dark",
+  themeColor: "#002b42",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${anybody.variable} ${sourceSans.variable} min-h-screen bg-background font-sans text-foreground antialiased`}
-      >
-        <ThemeProvider>{children}</ThemeProvider>
+    <html
+      lang="en"
+      className={`${instrumentSerif.variable} ${inter.variable} dark`}
+    >
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+        {children}
       </body>
     </html>
   );

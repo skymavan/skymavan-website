@@ -1,16 +1,10 @@
-import Image from "next/image";
-import {
-  ArrowDownRight,
-  ArrowRight,
-  ArrowUpRight,
-  Check,
-} from "lucide-react";
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 
 import { ContactForm } from "@/components/contact-form";
 import { FaqSection } from "@/components/faq-section";
-import { HeroVisual } from "@/components/hero-visual";
-import { PageProgress } from "@/components/page-progress";
+import { HeroVideo } from "@/components/hero-video";
 import { SiteHeader } from "@/components/site-header";
+import { SystemRoute } from "@/components/system-route";
 import { Button } from "@/components/ui/button";
 import {
   operatingPrinciples,
@@ -19,7 +13,6 @@ import {
   services,
   siteConfig,
 } from "@/content/site";
-import { withBasePath } from "@/lib/base-path";
 import { createStructuredData } from "@/lib/structured-data";
 
 export default function Home() {
@@ -30,46 +23,41 @@ export default function Home() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <PageProgress />
       <SiteHeader />
 
       <main id="main-content">
         <section id="top" className="hero-section" aria-labelledby="hero-title">
-          <div className="site-shell hero-grid">
+          <HeroVideo />
+          <div className="site-shell hero-inner">
             <div className="hero-copy">
               <p className="eyebrow">
                 <span className="status-dot" aria-hidden="true" />
-                Independent AI product studio
+                Systems for consequential work
               </p>
               <h1 id="hero-title" className="hero-title">
-                AI systems that move work forward.
+                Intelligence, built to{" "}
+                <em>move real work forward.</em>
               </h1>
               <p className="hero-description">
-                SkyMavan is an AI product studio for startups and growing
-                businesses. We design and build custom agents, connected
-                automations, and AI SaaS products that fit real workflows,
-                keep people in control, and create dependable operational
-                progress.
+                SkyMavan designs custom AI agents, connected automations, and AI
+                products for teams that need dependable progress—with clear
+                controls, observable decisions, and people in command.
               </p>
               <div className="hero-actions">
-                <Button asChild size="lg" className="h-12 px-5">
-                  <a href="#contact">
-                    Start a project <ArrowUpRight aria-hidden="true" />
-                  </a>
-                </Button>
                 <Button
                   asChild
-                  variant="outline"
                   size="lg"
-                  className="h-12 px-5"
+                  className="liquid-glass hero-primary-action rounded-full text-foreground"
                 >
-                  <a href="#approach">
-                    See how we build <ArrowDownRight aria-hidden="true" />
+                  <a href="#contact">
+                    Begin the journey <ArrowUpRight aria-hidden="true" />
                   </a>
                 </Button>
+                <a href="#services" className="hero-secondary-action">
+                  Explore what we build <ArrowDownRight aria-hidden="true" />
+                </a>
               </div>
             </div>
-            <HeroVisual />
           </div>
           <div className="site-shell hero-footnote" aria-label="System qualities">
             <span>Observable by design</span>
@@ -113,27 +101,9 @@ export default function Home() {
 
         <section className="operations-section section-pad" aria-labelledby="operations-title">
           <div className="site-shell operations-grid">
-            <div className="operations-visual">
-              <picture>
-                <source
-                  srcSet={withBasePath("/media/system-architecture.avif")}
-                  type="image/avif"
-                />
-                <Image
-                  src={withBasePath("/media/system-architecture.webp")}
-                  alt="Layered contemporary architecture representing connected operational systems"
-                  width={1200}
-                  height={900}
-                  sizes="(min-width: 1024px) 48vw, 100vw"
-                  className="operations-image"
-                />
-              </picture>
-              <div className="system-trace" aria-hidden="true">
-                <span>INPUT</span>
-                <span>REASON</span>
-                <span>APPROVE</span>
-                <span>ACT</span>
-              </div>
+            <div className="operations-visual" aria-label="Observable operating loop">
+              <p className="route-kicker">A visible operating loop</p>
+              <SystemRoute />
             </div>
 
             <div className="operations-copy">

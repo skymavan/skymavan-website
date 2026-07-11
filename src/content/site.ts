@@ -1,11 +1,3 @@
-export type ThemeMode = "light" | "dark" | "system";
-
-export type HeroSceneProps = {
-  theme: "light" | "dark";
-  reducedMotion: boolean;
-  visibility: boolean;
-};
-
 export type SiteConfig = {
   name: string;
   canonicalUrl: string;

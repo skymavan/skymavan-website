@@ -7,7 +7,7 @@ Premium static company site for SkyMavan, an AI product studio building custom a
 - Next.js App Router, React 19, TypeScript, pnpm
 - Tailwind CSS v4 and customized shadcn/Radix primitives
 - React Hook Form with Zod validation
-- Motion, React Three Fiber, Drei, and Three.js
+- Cinematic video with local reduced-motion poster fallbacks
 - Vitest, Playwright, and axe
 - GitHub Pages static export
 
@@ -46,6 +46,6 @@ Add and verify the DNS records GitHub shows for the custom domain. A committed `
 ## Authoritative project context
 
 - `PRODUCT.md` records positioning, audiences, and experience principles.
-- `DESIGN.md` records the Living Systems visual direction and committed tokens.
+- `DESIGN.md` records the Celestial Instrument visual direction and committed tokens.
 - `docs/content-roadmap.md` records the post-launch content strategy.
 - `docs/asset-sources.md` records generated and licensed visual sources.

@@ -17,9 +17,8 @@ const nextConfig: NextConfig = {
   basePath,
   devIndicators: false,
   images: { unoptimized: true },
-  transpilePackages: ["three"],
   experimental: {
-    optimizePackageImports: ["lucide-react", "@react-three/drei"],
+    optimizePackageImports: ["lucide-react"],
   },
   env: { NEXT_PUBLIC_BASE_PATH: basePath },
 };

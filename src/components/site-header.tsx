@@ -2,8 +2,6 @@
 
 import { ArrowUpRight, Menu } from "lucide-react";
 
-import { BrandMark } from "@/components/brand-mark";
-import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -19,14 +17,13 @@ import { navigation } from "@/content/site";
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <div className="site-shell flex h-[4.5rem] items-center justify-between gap-4">
+      <div className="site-shell header-shell liquid-glass flex h-[4.5rem] items-center justify-between gap-4 rounded-full px-4 sm:px-6">
         <a
           href="#top"
-          className="inline-flex items-center gap-2.5 rounded-lg font-heading text-lg font-bold tracking-[-0.025em] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+          className="wordmark rounded-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
           aria-label="SkyMavan home"
         >
-          <BrandMark />
-          <span>SkyMavan</span>
+          SkyMavan
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
@@ -38,10 +35,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <ThemeSwitcher />
-          <Button asChild size="lg" className="hidden h-10 px-4 sm:inline-flex">
+          <Button
+            asChild
+            size="lg"
+            className="liquid-glass hidden h-11 rounded-full px-5 text-foreground sm:inline-flex"
+          >
             <a href="#contact">
-              Start a project
+              Begin the journey
               <ArrowUpRight aria-hidden="true" />
             </a>
           </Button>
@@ -51,7 +51,7 @@ export function SiteHeader() {
               <Button
                 variant="outline"
                 size="icon"
-                className="size-10 lg:hidden"
+                className="liquid-glass size-11 rounded-full text-foreground lg:hidden"
                 aria-label="Open navigation"
               >
                 <Menu aria-hidden="true" />
@@ -63,9 +63,7 @@ export function SiteHeader() {
             >
               <SheetHeader className="border-b border-border p-6 text-left">
                 <SheetTitle className="sr-only">Site navigation</SheetTitle>
-                <div className="flex items-center gap-2.5 font-heading text-lg font-semibold">
-                  <BrandMark /> SkyMavan
-                </div>
+                <div className="wordmark">SkyMavan</div>
                 <SheetDescription>
                   AI systems designed for real operations.
                 </SheetDescription>
@@ -88,7 +86,7 @@ export function SiteHeader() {
               <div className="mt-auto p-4">
                 <SheetClose asChild>
                   <Button asChild size="lg" className="h-12 w-full">
-                    <a href="#contact">Start a project</a>
+                    <a href="#contact">Begin the journey</a>
                   </Button>
                 </SheetClose>
               </div>

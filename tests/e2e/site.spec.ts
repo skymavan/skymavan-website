@@ -9,15 +9,19 @@ test("core narrative, anchors, FAQ, and layout remain usable", async ({ page }) 
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: "AI systems that move work forward.",
+      name: "Intelligence, built to move real work forward.",
     }),
   ).toBeVisible();
+  await expect(page.getByRole("link", { name: "Begin the journey" }).first()).toHaveAttribute(
+    "href",
+    "#contact",
+  );
   await expect(page.getByText("from $3,500")).toBeVisible();
   await expect(page.getByText("from $5,000")).toBeVisible();
   await expect(page.getByText("from $10,000")).toBeVisible();
 
-  await page.getByRole("link", { name: "See how we build" }).click();
-  await expect(page).toHaveURL(/#approach$/);
+  await page.getByRole("link", { name: "Explore what we build" }).click();
+  await expect(page).toHaveURL(/#services$/);
 
   await page
     .getByRole("button", { name: "How much does custom AI development cost?" })
@@ -32,11 +36,9 @@ test("core narrative, anchors, FAQ, and layout remain usable", async ({ page }) 
   expect(overflow).toBeLessThanOrEqual(1);
 });
 
-test("theme choice persists", async ({ page }) => {
-  await page.getByRole("combobox", { name: "Choose theme" }).click();
-  await page.getByRole("option", { name: "Dark" }).click();
-  await expect(page.locator("html")).toHaveClass(/dark/);
-  await page.reload();
+test("uses the exact dark-only SkyMavan identity", async ({ page }) => {
+  await expect(page.getByRole("link", { name: "SkyMavan home" })).toHaveText("SkyMavan");
+  await expect(page.getByRole("combobox", { name: "Choose theme" })).toHaveCount(0);
   await expect(page.locator("html")).toHaveClass(/dark/);
 });
 
@@ -68,17 +70,16 @@ test("form explains and opens an email draft flow", async ({ page }) => {
 test("reduced motion keeps the static hero and removes continuous animation", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.reload();
-  await expect(
-    page.getByRole("img", { name: "Connected AI workflow nodes" }),
-  ).toBeVisible();
-  await expect(page.locator("canvas")).toHaveCount(0);
+  await expect(page.locator(".hero-poster")).toBeVisible();
+  await expect(page.locator(".hero-video")).toHaveCount(0);
   await expect(page.locator(".page-progress")).toHaveCount(0);
 });
 
-test("desktop interaction activates the living agent network", async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== "desktop", "WebGL enhancement is desktop-only");
-  await page.locator(".hero-visual").hover();
-  await expect(page.locator(".hero-visual canvas")).toBeVisible();
+test("motion-capable visitors receive the decorative video", async ({ page }) => {
+  const video = page.locator(".hero-video");
+  await expect(video).toHaveAttribute("autoplay", "");
+  await expect(video).toHaveAttribute("loop", "");
+  await expect(video).toHaveAttribute("playsinline", "");
 });
 
 test("has no automatically detectable accessibility violations", async ({ page }) => {
@@ -86,19 +87,15 @@ test("has no automatically detectable accessibility violations", async ({ page }
   expect(results.violations).toEqual([]);
 });
 
-test("matches the approved light and dark compositions", async ({ page }) => {
+test("matches the approved dark composition", async ({ page }) => {
   test.skip(Boolean(process.env.CI), "Local visual baselines are platform-specific");
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.reload();
-  await expect(page.getByRole("combobox", { name: "Choose theme" })).toBeVisible();
-  await expect(page).toHaveScreenshot("homepage-light.png", {
-    fullPage: true,
-    animations: "disabled",
+  await expect(page.locator(".hero-visual")).toHaveAttribute("data-mounted", "true");
+  await page.locator("nextjs-portal").evaluateAll((portals) => {
+    portals.forEach((portal) => portal.remove());
   });
-
-  await page.getByRole("combobox", { name: "Choose theme" }).click();
-  await page.getByRole("option", { name: "Dark" }).click();
-  await expect(page).toHaveScreenshot("homepage-dark.png", {
+  await expect(page).toHaveScreenshot("homepage-celestial-dark.png", {
     fullPage: true,
     animations: "disabled",
   });

@@ -14,14 +14,14 @@ SkyMavan designs and builds custom AI agents, workflow automations, and AI SaaS 
 
 ## Brand Personality
 
-Visionary, precise, dependable. The brand should feel like a living aerospace instrument: organic intelligence observed under laboratory light. It should create curiosity without sacrificing engineering credibility.
+Visionary, precise, dependable. The brand should feel like a celestial instrument: expansive intelligence made legible through disciplined system signals. It should create curiosity without sacrificing engineering credibility.
 
 ## Anti-references
 
-- Do not clone Neural AI Forge's visual identity, copy, assets, sidebar, mono-heavy typography, or dark-only palette.
-- Do not use neon-purple AI styling, decorative glassmorphism, gradient text, endless identical cards, fake dashboards, fabricated metrics, fake client logos, or testimonials.
+- Do not clone Neural AI Forge's visual identity, copy, assets, sidebar, or mono-heavy typography.
+- Do not use neon-purple AI styling, glass across content surfaces, gradient text, endless identical cards, fake dashboards, fabricated metrics, fake client logos, or testimonials.
 - Do not default to beige editorial minimalism, terminal cosplay, or generic SaaS-template layouts.
-- Do not imply that stock-photo people are SkyMavan employees or customers.
+- Do not describe background-video figures as SkyMavan employees or customers.
 
 ## Design Principles
 
@@ -29,8 +29,8 @@ Visionary, precise, dependable. The brand should feel like a living aerospace in
 2. Make ambition legible: cinematic moments coexist with direct copy, visible pricing, and obvious next steps.
 3. Earn trust without invented proof: use technical clarity, human-control principles, and transparent scope instead of unverified claims.
 4. Build for the whole journey: the site must remain useful to people, search engines, AI agents, keyboard users, and reduced-motion visitors.
-5. Keep performance part of the brand: the experience should feel immediate even when WebGL is unavailable.
+5. Keep performance part of the brand: the experience should feel immediate while the video loads or when motion is unavailable.
 
 ## Accessibility & Inclusion
 
-Target WCAG 2.2 AA. All text and interactive controls must meet contrast requirements, navigation and forms must work by keyboard and screen reader, focus must remain visible, and all motion must honor `prefers-reduced-motion`. Mobile and WebGL-fallback experiences are first-class, not reduced-quality afterthoughts.
+Target WCAG 2.2 AA. All text and interactive controls must meet contrast requirements, navigation and forms must work by keyboard and screen reader, focus must remain visible, and all motion must honor `prefers-reduced-motion`. Mobile and video-fallback experiences are first-class, not reduced-quality afterthoughts.
