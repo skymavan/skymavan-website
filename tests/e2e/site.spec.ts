@@ -9,10 +9,10 @@ test("core narrative, anchors, FAQ, and layout remain usable", async ({ page }) 
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: "Intelligence, built to move real work forward.",
+      name: "AI systems that move real work forward.",
     }),
   ).toBeVisible();
-  await expect(page.getByRole("link", { name: "Begin the journey" }).first()).toHaveAttribute(
+  await expect(page.getByRole("link", { name: "Start a project" }).first()).toHaveAttribute(
     "href",
     "#contact",
   );
@@ -20,7 +20,7 @@ test("core narrative, anchors, FAQ, and layout remain usable", async ({ page }) 
   await expect(page.getByText("from $5,000")).toBeVisible();
   await expect(page.getByText("from $10,000")).toBeVisible();
 
-  await page.getByRole("link", { name: "Explore what we build" }).click();
+  await page.getByRole("link", { name: "See what we build" }).click();
   await expect(page).toHaveURL(/#services$/);
 
   await page
@@ -67,19 +67,36 @@ test("form explains and opens an email draft flow", async ({ page }) => {
   await expect(page.getByRole("button", { name: "Open email draft" })).toBeEnabled();
 });
 
-test("reduced motion keeps the static hero and removes continuous animation", async ({ page }) => {
+test("reduced motion keeps the local static hero and removes continuous animation", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.reload();
-  await expect(page.locator(".hero-poster")).toBeVisible();
-  await expect(page.locator(".hero-video")).toHaveCount(0);
+  await expect(page.locator(".hero-image")).toBeVisible();
+  await expect(page.locator("video")).toHaveCount(0);
   await expect(page.locator(".page-progress")).toHaveCount(0);
 });
 
-test("motion-capable visitors receive the decorative video", async ({ page }) => {
-  const video = page.locator(".hero-video");
-  await expect(video).toHaveAttribute("autoplay", "");
-  await expect(video).toHaveAttribute("loop", "");
-  await expect(video).toHaveAttribute("playsinline", "");
+test("motion-capable visitors receive responsive local hero artwork", async ({ page }) => {
+  await expect(page.locator('.hero-visual source[type="image/avif"]').last()).toHaveAttribute(
+    "srcset",
+    /skymavan-hero-instrument-desktop\.avif$/,
+  );
+  await expect(page.locator(".hero-image")).toHaveAttribute(
+    "src",
+    /skymavan-hero-instrument-desktop\.webp$/,
+  );
+  await expect(page.locator("video")).toHaveCount(0);
+});
+
+test("stacked hero copy stays clear of the artwork", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === "desktop", "Desktop uses the copy-safe image field");
+
+  const copyBox = await page.locator(".hero-copy").boundingBox();
+  const visualBox = await page.locator(".hero-visual").boundingBox();
+  expect(copyBox).not.toBeNull();
+  expect(visualBox).not.toBeNull();
+  if (!copyBox || !visualBox) return;
+
+  expect(copyBox.y + copyBox.height).toBeLessThanOrEqual(visualBox.y);
 });
 
 test("has no automatically detectable accessibility violations", async ({ page }) => {
@@ -91,7 +108,7 @@ test("matches the approved dark composition", async ({ page }) => {
   test.skip(Boolean(process.env.CI), "Local visual baselines are platform-specific");
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.reload();
-  await expect(page.locator(".hero-visual")).toHaveAttribute("data-mounted", "true");
+  await expect(page.locator(".hero-image")).toBeVisible();
   await page.locator("nextjs-portal").evaluateAll((portals) => {
     portals.forEach((portal) => portal.remove());
   });

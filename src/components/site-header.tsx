@@ -41,7 +41,7 @@ export function SiteHeader() {
             className="liquid-glass hidden h-11 rounded-full px-5 text-foreground sm:inline-flex"
           >
             <a href="#contact">
-              Begin the journey
+              Start a project
               <ArrowUpRight aria-hidden="true" />
             </a>
           </Button>
@@ -86,7 +86,7 @@ export function SiteHeader() {
               <div className="mt-auto p-4">
                 <SheetClose asChild>
                   <Button asChild size="lg" className="h-12 w-full">
-                    <a href="#contact">Begin the journey</a>
+                    <a href="#contact">Start a project</a>
                   </Button>
                 </SheetClose>
               </div>

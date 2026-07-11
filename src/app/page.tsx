@@ -2,7 +2,7 @@ import { ArrowDownRight, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 
 import { ContactForm } from "@/components/contact-form";
 import { FaqSection } from "@/components/faq-section";
-import { HeroVideo } from "@/components/hero-video";
+import { HeroVisual } from "@/components/hero-visual";
 import { SiteHeader } from "@/components/site-header";
 import { SystemRoute } from "@/components/system-route";
 import { Button } from "@/components/ui/button";
@@ -27,21 +27,16 @@ export default function Home() {
 
       <main id="main-content">
         <section id="top" className="hero-section" aria-labelledby="hero-title">
-          <HeroVideo />
+          <HeroVisual />
           <div className="site-shell hero-inner">
             <div className="hero-copy">
-              <p className="eyebrow">
-                <span className="status-dot" aria-hidden="true" />
-                Systems for consequential work
-              </p>
+              <p className="eyebrow">AI agents · Automations · AI products</p>
               <h1 id="hero-title" className="hero-title">
-                Intelligence, built to{" "}
-                <em>move real work forward.</em>
+                AI systems that <em>move real work forward.</em>
               </h1>
               <p className="hero-description">
-                SkyMavan designs custom AI agents, connected automations, and AI
-                products for teams that need dependable progress—with clear
-                controls, observable decisions, and people in command.
+                SkyMavan builds dependable agents, connected automations, and AI
+                products—with observable decisions and people in control.
               </p>
               <div className="hero-actions">
                 <Button
@@ -50,20 +45,33 @@ export default function Home() {
                   className="liquid-glass hero-primary-action rounded-full text-foreground"
                 >
                   <a href="#contact">
-                    Begin the journey <ArrowUpRight aria-hidden="true" />
+                    Start a project <ArrowUpRight aria-hidden="true" />
                   </a>
                 </Button>
                 <a href="#services" className="hero-secondary-action">
-                  Explore what we build <ArrowDownRight aria-hidden="true" />
+                  See what we build <ArrowDownRight aria-hidden="true" />
                 </a>
               </div>
             </div>
           </div>
-          <div className="site-shell hero-footnote" aria-label="System qualities">
-            <span>Observable by design</span>
-            <span>Human approvals built in</span>
-            <span>Model-flexible architecture</span>
-          </div>
+          <ol className="site-shell hero-route" aria-label="Hero system route">
+            <li>
+              <span aria-hidden="true">01</span>
+              <strong>Input</strong>
+            </li>
+            <li>
+              <span aria-hidden="true">02</span>
+              <strong>Reason</strong>
+            </li>
+            <li className="hero-route-human">
+              <span aria-hidden="true">03</span>
+              <strong>Human approval</strong>
+            </li>
+            <li>
+              <span aria-hidden="true">04</span>
+              <strong>Act</strong>
+            </li>
+          </ol>
         </section>
 
         <section id="services" className="section-pad" aria-labelledby="services-title">
