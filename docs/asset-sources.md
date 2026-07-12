@@ -1,31 +1,31 @@
 # Asset Sources
 
-## Celestial operations instrument
+## AI operations agent hero
 
-- Source: generated for SkyMavan with the built-in OpenAI image generator on 2026-07-11.
+- Source: generated for SkyMavan with the built-in OpenAI image generator on 2026-07-13.
 - Usage: decorative responsive homepage hero artwork.
-- Selected output: the second, targeted composition pass. The first pass was rejected because signal lines occupied the copy-safe area.
-- Processing: Sharp desktop crop at 1600×900 and focal mobile crop at 900×1125, exported as AVIF and WebP.
+- Selected output: robot-based AI operations composition using the user's provided reference image for mood, right-side robot placement, blue workflow routing, and gold approval/action accents.
+- Processing: Sharp desktop resize at 1600×900 and right-focused mobile crop at 900×1125, exported as AVIF and WebP.
 - Delivery: local assets only; no remote media, video, or runtime image service.
 
 Final prompt:
 
 ```text
 Use case: stylized-concept
-Asset type: SkyMavan homepage hero background, targeted composition revision
-Primary request: Create the same original monumental celestial operations instrument concept: a precision astrolabe-like mechanism that transforms many incoming signals into one deliberate, human-controlled action.
-Scene/backdrop: Deep abyss-navy space with very restrained star dust; no planets, landscape, room, or floor.
-Subject: Dark titanium and smoked-glass concentric calibrated rings on the RIGHT HALF only. A small number of thin signal-blue paths enter from the lower-right side of the quiet area, resolve through visible mechanical stages, pause at one warm human-gold approval aperture, then emerge as one clear gold trajectory.
-Style/medium: Premium cinematic 3D product/concept render with realistic brushed metal and disciplined scientific-instrument design; visionary, precise, dependable; not fantasy and not cyberpunk.
-Composition/framing: Wide 16:9 landing-page composition. Keep the entire left 45% almost empty, uniformly dark abyss navy, and low-detail for large white copy. Place the instrument fully in the right 55%, with the gold aperture near 72% horizontal and 52% vertical. Keep the core readable in a portrait crop centered on the aperture and the bottom 14% calm for programmatic route labels.
-Lighting/mood: Restrained cool edge lighting and one controlled warm-gold focal light; cinematic depth without haze or excessive glow.
-Color palette: Abyss Navy #002B42, Deep Current #071A24, Signal Blue #79CFE8, Human Gold #FFD36A, white used sparingly.
-Text: none.
-Constraints: No people, logos, words, letters, readable numbers, watermark, screens, dashboards, UI panels, or product mockups. Gold appears only at the approval aperture and single outgoing trajectory. Strong silhouette and clean negative space.
-Avoid: any detail in the left copy-safe area; AI brains, humanoid robots, faces, circuit-board heads, neon purple, cyberpunk city imagery, fantasy planets, decorative blobs, excessive fog, lens flare, overexposure, clutter, or generic AI-network artwork.
+Asset type: SkyMavan homepage hero background, robot AI operations direction
+Input image: Reference for overall mood, dark blue enterprise AI aesthetic, robot-on-right composition, flowing blue workflow paths, warm gold approval/action accents. Do not copy exact layout or text.
+Primary request: Generate a new premium AI operations hero image for SkyMavan: a sophisticated robotic AI operator managing business workflow automation, AI agents, integrations, and human-approved actions.
+Scene/backdrop: Deep abyss-navy technical environment, cinematic and restrained. The scene should feel like a high-end AI operations command space, not outer space and not a cyberpunk city.
+Subject: Place a refined humanoid robotic AI operator on the far right side only, shown from behind or three-quarter back view, made from dark titanium, smoked glass, and subtle signal-blue illuminated components. The robot should be focused, precise, and non-threatening. In front of the robot, in the center-right area, show abstract translucent system cards and icon-only modules feeding multiple thin signal-blue workflow paths into a central orchestration node, then into one warm human-gold approval checkpoint, then one clean gold action trajectory.
+Composition/framing: Wide 16:9 landing-page composition. Keep the entire left 45% nearly empty, uniformly dark abyss navy, low-detail, and copy-safe for large white homepage text. Put all meaningful detail in the right 55%. Keep the robot mostly in the rightmost 25%, with workflow paths and abstract modules between 48% and 78% horizontal. Keep the main gold approval focal point near 72% horizontal and 52% vertical. Leave the bottom 14% calm and low-contrast for route labels.
+Style/medium: Premium cinematic 3D render, enterprise-grade AI, precise, dependable, engineered, elegant. Physical depth, glossy black metal, glass, fine cabling, and luminous routing paths. More polished product-render than illustration.
+Lighting/mood: Restrained cool blue edge lighting with one controlled warm-gold approval light. Crisp contrast, calm trust, no heavy haze.
+Color palette: Abyss Navy #002B42 and Deep Current #071A24 as the dominant background; Signal Blue #79CFE8 for workflow paths; Human Gold #FFD36A only for approval and final action; white only as tiny specular highlights.
+Text: none. No words, no letters, no readable numbers anywhere.
+Constraints: Preserve large negative space on the left. Do not place the robot or bright UI behind the left headline area. No logos, no watermark, no readable labels, no chat bubbles, no code screens, no flat dashboards, no people, no aggressive robot, no weapon-like shapes, no purple neon, no magenta, no decorative blobs, no excessive fog, no lens flare, no generic AI brain graphic.
 ```
 
 ## Social image
 
 - `src/app/opengraph-image.png`
-- Source: deterministic 1200×630 capture of the approved celestial-instrument hero.
+- Source: unchanged in this pass; the homepage hero artwork is updated independently.

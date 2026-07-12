@@ -10,7 +10,7 @@ describe("SiteHeader", () => {
 
     const wordmark = screen.getByRole("link", { name: "SkyMavan home" });
     expect(wordmark.querySelector("img")).toBeInTheDocument();
-    expect(wordmark).toHaveTextContent("Skymavan");
+    expect(wordmark).toHaveTextContent("SkyMavan");
     expect(wordmark).toHaveAttribute("href", "#top");
     expect(screen.getAllByRole("link", { name: "Start a project" })[0]).toHaveAttribute(
       "href",

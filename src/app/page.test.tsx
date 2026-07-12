@@ -20,7 +20,7 @@ beforeEach(() => {
 });
 
 describe("Home", () => {
-  it("presents the approved celestial instrument narrative and anchors", () => {
+  it("presents the approved AI operations hero narrative and anchors", () => {
     render(<Home />);
 
     expect(

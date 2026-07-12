@@ -722,6 +722,10 @@
   line-height: 1.65;
 }
 
+#process {
+  background: hsl(var(--surface));
+}
+
 .faq-grid {
   display: grid;
   grid-template-columns: minmax(18rem, 0.45fr) minmax(26rem, 1fr);

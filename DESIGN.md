@@ -1,8 +1,8 @@
-# SkyMavan Celestial Instrument Design System
+# SkyMavan AI Operations Agent Design System
 
 ## Direction
 
-Celestial Instrument pairs a cinematic star-field working scene with precise system language. The page should feel expansive at first contact and increasingly concrete as visitors move into services, operating controls, process, pricing, and contact. SkyMavan is always written with a capital S and M and never carries a registered-mark symbol.
+AI Operations Agent pairs a cinematic robotic operator scene with precise system language. The page should immediately signal artificial intelligence while staying grounded in operational reliability as visitors move into services, operating controls, process, FAQ, and contact. SkyMavan is always written with a capital S and M and never carries a registered-mark symbol.
 
 ## Color
 
@@ -29,7 +29,7 @@ Signal Blue identifies system routes, links, and focus. Human Gold is reserved f
 ## Layout and Components
 
 - Maximum content width is 80rem with fluid mobile gutters.
-- The hero occupies at least `100svh`; text sits in the celestial instrument's purpose-built negative space with no tint, wash, or gradient overlay.
+- The hero occupies at least `100svh`; text sits in the AI operations scene's purpose-built negative space with no tint, wash, or gradient overlay.
 - Services use editorial rows; process uses a real ordered timeline; cards are reserved for pricing comparisons.
 - The header floats above the hero. Liquid glass is limited to navigation and primary journey controls.
 - Content and form surfaces are opaque Deep Current or Abyss Navy with restrained borders.
@@ -38,8 +38,8 @@ Signal Blue identifies system routes, links, and focus. Human Gold is reserved f
 
 ## Imagery and Motion
 
-- The decorative hero instrument is local and art-directed through desktop and mobile AVIF/WebP sources.
-- Do not add color overlays, decorative blobs, radial gradients, or generic AI glow effects.
+- The decorative hero robot scene is local and art-directed through desktop and mobile AVIF/WebP sources.
+- Do not add color overlays, decorative blobs, radial gradients, unreadable UI text, or generic AI glow effects.
 - Hero copy uses one fully opaque three-stage rise sequence: headline at 0ms, description at 200ms, actions at 400ms.
 - Fine-pointer desktops add at most 8px horizontal and 5px vertical depth to the hero artwork; coarse pointers, smaller screens, and reduced-motion users receive a static image.
 - Controls use the standard easing `cubic-bezier(0.16, 1, 0.3, 1)`.

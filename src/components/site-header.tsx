@@ -26,7 +26,7 @@ export function SiteHeader() {
         >
           <Image src="/media/logo.png" alt="" width={56} height={56} priority className="shrink-0" />
           <span className="font-display text-[clamp(1.4rem,2.5vw,1.75rem)] font-medium tracking-[-0.035em] text-foreground">
-            Skymavan
+            SkyMavan
           </span>
         </a>
 
