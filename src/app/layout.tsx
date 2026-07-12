@@ -22,32 +22,32 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.canonicalUrl),
-  title: "SkyMavan | AI Agents, Automation & AI SaaS Development",
+  title: "Skymavan | Custom AI Agents, Workflow Automation & AI Software Development",
   description:
-    "SkyMavan designs and builds custom AI agents, workflow automation, and AI SaaS products for startups and growing businesses.",
+    "Skymavan builds custom AI agents, workflow automation, and AI software for businesses that need reliable systems, human oversight, and measurable operational results.",
   alternates: { canonical: siteConfig.canonicalUrl },
   applicationName: siteConfig.name,
   openGraph: {
     type: "website",
     url: siteConfig.canonicalUrl,
     siteName: siteConfig.name,
-    title: "SkyMavan | Intelligence built for real work",
+    title: "Skymavan | Custom AI Agents & Workflow Automation",
     description:
-      "Custom AI agents, connected automations, and AI products designed for dependable progress.",
+      "Skymavan builds custom AI agents, workflow automation, and AI software for enterprise operations.",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "SkyMavan — AI systems that move work forward",
+        alt: "Skymavan — Custom AI systems for business operations",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SkyMavan | Intelligence built for real work",
+    title: "Skymavan | Custom AI Agents & Automation",
     description:
-      "Custom AI agents, workflow automation, and AI SaaS products designed for real operations.",
+      "Custom AI agents, workflow automation, and AI software built for business-critical operations.",
     images: ["/opengraph-image.png"],
   },
 };

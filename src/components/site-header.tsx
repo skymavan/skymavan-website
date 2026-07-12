@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowUpRight, Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -20,10 +21,13 @@ export function SiteHeader() {
       <div className="site-shell header-shell liquid-glass flex h-[4.5rem] items-center justify-between gap-4 rounded-full px-4 sm:px-6">
         <a
           href="#top"
-          className="wordmark rounded-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+          className="flex items-center gap-1.5 rounded-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
           aria-label="SkyMavan home"
         >
-          SkyMavan
+          <Image src="/media/logo.png" alt="" width={56} height={56} priority className="shrink-0" />
+          <span className="font-display text-[clamp(1.4rem,2.5vw,1.75rem)] font-medium tracking-[-0.035em] text-foreground">
+            Skymavan
+          </span>
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
@@ -63,9 +67,14 @@ export function SiteHeader() {
             >
               <SheetHeader className="border-b border-border p-6 text-left">
                 <SheetTitle className="sr-only">Site navigation</SheetTitle>
-                <div className="wordmark">SkyMavan</div>
+                <div className="flex items-center gap-2">
+                  <Image src="/media/logo.png" alt="" width={56} height={56} className="shrink-0" />
+                  <span className="font-display text-[clamp(1.4rem,2.5vw,1.75rem)] font-medium tracking-[-0.035em] text-foreground">
+                    Skymavan
+                  </span>
+                </div>
                 <SheetDescription>
-                  AI systems designed for real operations.
+                  Custom AI systems for business-critical operations.
                 </SheetDescription>
               </SheetHeader>
               <nav
