@@ -12,9 +12,17 @@ describe("SiteHeader", () => {
     expect(wordmark.querySelector("img")).toBeInTheDocument();
     expect(wordmark).toHaveTextContent("SkyMavan");
     expect(wordmark).toHaveAttribute("href", "#top");
-    expect(screen.getAllByRole("link", { name: "Start a project" })[0]).toHaveAttribute(
+    expect(screen.getAllByRole("link", { name: "Book a meeting" })[0]).toHaveAttribute(
       "href",
-      "#contact",
+      "https://zbooking.in/Drh23",
+    );
+    expect(screen.getAllByRole("link", { name: "Book a meeting" })[0]).toHaveAttribute(
+      "target",
+      "_blank",
+    );
+    expect(screen.getAllByRole("link", { name: "Book a meeting" })[0]).toHaveAttribute(
+      "rel",
+      expect.stringContaining("noopener"),
     );
     expect(screen.queryByRole("combobox", { name: "Choose theme" })).toBeNull();
   });

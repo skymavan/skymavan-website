@@ -14,8 +14,25 @@ describe("site content", () => {
       name: "Skymavan",
       canonicalUrl: "https://skymavan.com/",
       email: "hello@skymavan.com",
-      bookingUrl: undefined,
+      bookingUrl: "https://zbooking.in/Drh23",
     });
+    expect(siteConfig.socialLinks).toEqual([
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/sky-mavan-0699ab421/",
+        icon: "linkedin",
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/skymavanai",
+        icon: "instagram",
+      },
+      {
+        label: "X",
+        href: "https://x.com/Skymavanai",
+        icon: "x",
+      },
+    ]);
   });
 
   it("keeps navigation and service anchors unique", () => {

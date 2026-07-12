@@ -34,15 +34,38 @@ describe("Home", () => {
         "Skymavan builds custom AI agents, connected automations, and production AI software for teams that need reliable systems, not experimental chatbots. Every solution includes human oversight, secure integrations, and a clear path to measurable results.",
       ),
     ).toBeVisible();
-    expect(screen.getAllByRole("link", { name: "Start a project" })[0]).toHaveAttribute(
+    expect(screen.getAllByRole("link", { name: "Book a meeting" })[0]).toHaveAttribute(
       "href",
-      "#contact",
+      "https://zbooking.in/Drh23",
+    );
+    expect(screen.getAllByRole("link", { name: "Book a meeting" })[0]).toHaveAttribute(
+      "target",
+      "_blank",
+    );
+    expect(screen.getAllByRole("link", { name: "Book a meeting" })[0]).toHaveAttribute(
+      "rel",
+      expect.stringContaining("noopener"),
     );
     expect(screen.getByRole("link", { name: "See what we build" })).toHaveAttribute(
       "href",
       "#services",
     );
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
+  });
+
+  it("renders the footer social links as external destinations", () => {
+    render(<Home />);
+
+    for (const [label, href] of [
+      ["LinkedIn", "https://www.linkedin.com/in/sky-mavan-0699ab421/"],
+      ["Instagram", "https://www.instagram.com/skymavanai"],
+      ["X", "https://x.com/Skymavanai"],
+    ] as const) {
+      const link = screen.getByRole("link", { name: label });
+      expect(link).toHaveAttribute("href", href);
+      expect(link).toHaveAttribute("target", "_blank");
+      expect(link).toHaveAttribute("rel", expect.stringContaining("noopener"));
+    }
   });
 
   it("shows the four-stage hero route with human approval called out", () => {

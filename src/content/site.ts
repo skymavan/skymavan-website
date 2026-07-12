@@ -3,7 +3,7 @@ export type SiteConfig = {
   canonicalUrl: string;
   email: string;
   bookingUrl?: string;
-  socialLinks: ReadonlyArray<{ label: string; href: string }>;
+  socialLinks: ReadonlyArray<{ label: string; href: string; icon: "linkedin" | "instagram" | "x" }>;
 };
 
 export type ServiceId = "ai-agents" | "automation" | "ai-saas";
@@ -28,8 +28,24 @@ export const siteConfig: SiteConfig = {
   name: "Skymavan",
   canonicalUrl: "https://skymavan.com/",
   email: "hello@skymavan.com",
-  bookingUrl: undefined,
-  socialLinks: [],
+  bookingUrl: "https://zbooking.in/Drh23",
+  socialLinks: [
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/sky-mavan-0699ab421/",
+      icon: "linkedin",
+    },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/skymavanai",
+      icon: "instagram",
+    },
+    {
+      label: "X",
+      href: "https://x.com/Skymavanai",
+      icon: "x",
+    },
+  ],
 };
 
 export const navigation = [

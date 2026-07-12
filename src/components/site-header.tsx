@@ -13,7 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { navigation } from "@/content/site";
+import { navigation, siteConfig } from "@/content/site";
 
 export function SiteHeader() {
   return (
@@ -44,8 +44,8 @@ export function SiteHeader() {
             size="lg"
             className="liquid-glass hidden h-11 rounded-full px-5 text-foreground sm:inline-flex"
           >
-            <a href="#contact">
-              Start a project
+            <a href={siteConfig.bookingUrl} target="_blank" rel="noopener noreferrer">
+              Book a meeting
               <ArrowUpRight aria-hidden="true" />
             </a>
           </Button>
@@ -95,7 +95,9 @@ export function SiteHeader() {
               <div className="mt-auto p-4">
                 <SheetClose asChild>
                   <Button asChild size="lg" className="h-12 w-full">
-                    <a href="#contact">Start a project</a>
+                    <a href={siteConfig.bookingUrl} target="_blank" rel="noopener noreferrer">
+                      Book a meeting
+                    </a>
                   </Button>
                 </SheetClose>
               </div>

@@ -9,17 +9,17 @@ test("core narrative, anchors, FAQ, and layout remain usable", async ({ page }) 
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: "AI systems that move real work forward.",
+      name: "AI systems that solve operational problems.",
     }),
   ).toBeVisible();
-  await expect(page.getByRole("link", { name: "Start a project" }).first()).toHaveAttribute(
+  await expect(page.getByRole("link", { name: "Book a meeting" }).first()).toHaveAttribute(
     "href",
-    "#contact",
+    "https://zbooking.in/Drh23",
   );
-  await expect(page.getByText("from $3,500")).toBeVisible();
-  await expect(page.getByText("from $5,000")).toBeVisible();
-  await expect(page.getByText("from $10,000")).toBeVisible();
-
+  await expect(page.getByRole("link", { name: "Book a meeting" }).first()).toHaveAttribute(
+    "target",
+    "_blank",
+  );
   await page.getByRole("link", { name: "See what we build" }).click();
   await expect(page).toHaveURL(/#services$/);
 
@@ -27,7 +27,7 @@ test("core narrative, anchors, FAQ, and layout remain usable", async ({ page }) 
     .getByRole("button", { name: "How much does custom AI development cost?" })
     .click();
   await expect(
-    page.getByText("SkyMavan engagements start at $3,500"),
+    page.getByText("Skymavan engagements are scoped per project rather than priced on a menu."),
   ).toBeVisible();
 
   const overflow = await page.evaluate(
@@ -47,9 +47,9 @@ test("mobile navigation exposes every section", async ({ page }, testInfo) => {
   await page.getByRole("button", { name: "Open navigation" }).click();
   const dialog = page.getByRole("dialog", { name: "Site navigation" });
   await expect(dialog).toBeVisible();
-  await expect(dialog.getByRole("link", { name: "Pricing" })).toBeVisible();
-  await dialog.getByRole("link", { name: "Pricing" }).click();
-  await expect(page).toHaveURL(/#pricing$/);
+  await expect(dialog.getByRole("link", { name: "Services" })).toBeVisible();
+  await dialog.getByRole("link", { name: "Services" }).click();
+  await expect(page).toHaveURL(/#services$/);
 });
 
 test("form explains and opens an email draft flow", async ({ page }) => {
