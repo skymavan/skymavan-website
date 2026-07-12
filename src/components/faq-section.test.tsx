@@ -10,7 +10,7 @@ describe("FaqSection", () => {
     render(<FaqSection />);
 
     const question = screen.getByRole("button", {
-      name: "What can an AI agent automate?",
+      name: "How long does an AI project take?",
     });
     expect(question).toHaveAttribute("aria-expanded", "false");
 
@@ -18,7 +18,7 @@ describe("FaqSection", () => {
 
     expect(question).toHaveAttribute("aria-expanded", "true");
     expect(
-      screen.getByText(/workflows that combine information gathering/i),
+      screen.getByText(/3–5 weeks/i),
     ).toBeVisible();
   });
 });

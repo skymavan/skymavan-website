@@ -1,8 +1,7 @@
-import { faqItems, priceTiers, services, siteConfig } from "@/content/site";
+import { faqItems, siteConfig } from "@/content/site";
 
 export function createStructuredData() {
   const organizationId = `${siteConfig.canonicalUrl}#organization`;
-  const serviceId = `${siteConfig.canonicalUrl}#services`;
 
   return {
     "@context": "https://schema.org",
@@ -14,7 +13,7 @@ export function createStructuredData() {
         url: siteConfig.canonicalUrl,
         email: siteConfig.email,
         description:
-          "SkyMavan designs and builds custom AI agents, workflow automation, and AI SaaS products for startups and growing businesses.",
+          "Skymavan builds custom AI agents, workflow automation, and AI software for businesses that need reliable systems, human oversight, and measurable results.",
       },
       {
         "@type": "WebSite",
@@ -23,35 +22,6 @@ export function createStructuredData() {
         name: siteConfig.name,
         publisher: { "@id": organizationId },
         inLanguage: "en",
-      },
-      {
-        "@type": "Service",
-        "@id": serviceId,
-        name: "AI product development services",
-        provider: { "@id": organizationId },
-        areaServed: "Worldwide",
-        description:
-          "Custom AI agents, workflow automation, integrations, and AI SaaS product engineering.",
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "SkyMavan AI services",
-          itemListElement: services.map((service) => {
-            const tier = priceTiers.find(
-              (priceTier) => priceTier.serviceId === service.id,
-            );
-
-            return {
-              "@type": "Offer",
-              priceCurrency: "USD",
-              price: tier?.priceValue,
-              itemOffered: {
-                "@type": "Service",
-                name: service.title,
-                description: service.description,
-              },
-            };
-          }),
-        },
       },
       {
         "@type": "FAQPage",

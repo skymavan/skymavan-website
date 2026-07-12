@@ -18,17 +18,6 @@ export type Service = {
   ctaSubject: string;
 };
 
-export type PriceTier = {
-  serviceId: ServiceId;
-  name: string;
-  qualifier: "from";
-  price: string;
-  priceValue: number;
-  description: string;
-  inclusions: ReadonlyArray<string>;
-  disclaimer: string;
-};
-
 export type FaqItem = {
   id: string;
   question: string;
@@ -36,7 +25,7 @@ export type FaqItem = {
 };
 
 export const siteConfig: SiteConfig = {
-  name: "SkyMavan",
+  name: "Skymavan",
   canonicalUrl: "https://skymavan.com/",
   email: "hello@skymavan.com",
   bookingUrl: undefined,
@@ -45,8 +34,9 @@ export const siteConfig: SiteConfig = {
 
 export const navigation = [
   { label: "Services", href: "#services" },
-  { label: "Approach", href: "#approach" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Why Skymavan", href: "#why-skymavan" },
+  { label: "Industries", href: "#industries" },
+  { label: "Process", href: "#process" },
   { label: "FAQ", href: "#faq" },
 ] as const;
 
@@ -56,183 +46,222 @@ export const services: ReadonlyArray<Service> = [
   {
     id: "ai-agents",
     index: "01",
-    title: "Custom AI agents",
+    title: "AI agents that work alongside your team",
     shortTitle: "AI Agents",
     description:
-      "Purpose-built agents that research, reason, draft, qualify, and coordinate work across the tools your team already uses—with the right human checkpoints built in.",
+      "Most teams spend hours on tasks that follow clear patterns: researching prospects, summarizing conversations, drafting reports, triaging support tickets. We build purpose-driven AI agents that handle these workflows autonomously, with human approval at every decision point. The result is a digital teammate that handles the repetitive work so your team can focus on what requires judgment.",
     useCases: [
-      "Research and knowledge assistants",
-      "Lead qualification and sales support",
-      "Customer operations copilots",
-      "Internal decision-support workflows",
+      "Research assistants that gather and summarize market intelligence",
+      "Operations assistants that triage and route internal requests",
+      "Sales support agents that qualify leads and prepare briefs",
+      "Executive reporting agents that compile weekly summaries",
+      "Customer support copilots that resolve common issues",
     ],
     ctaSubject: "AI Agents",
   },
   {
     id: "automation",
     index: "02",
-    title: "Workflow automation & integrations",
+    title: "Workflow automation that connects your stack",
     shortTitle: "Automation",
     description:
-      "Reliable AI-enabled workflows that connect fragmented systems, remove manual handoffs, and surface exceptions to the right person instead of hiding them in another queue.",
+      "Your business runs on CRM, ERP, Slack, email, databases, and internal tools. The friction lives in the handoffs between them. We build AI-powered automation that connects these systems, removes manual data entry, routes approvals to the right person, and surfaces exceptions before they become problems. Human oversight is built into every critical path.",
     useCases: [
-      "Multi-step operational workflows",
-      "Data extraction and enrichment",
-      "Approval and exception routing",
-      "Legacy platform AI enablement",
+      "CRM and ERP data synchronization and enrichment",
+      "Multi-step approval workflows with human-in-the-loop gates",
+      "Slack and email based request triage and response",
+      "Database reporting and alert automation",
+      "Legacy system integration and API enablement",
     ],
     ctaSubject: "Automation",
   },
   {
     id: "ai-saas",
     index: "03",
-    title: "AI SaaS & product engineering",
+    title: "AI product engineering for production systems",
     shortTitle: "AI SaaS",
     description:
-      "From first architecture to a launch-ready product, we build focused AI applications with dependable interfaces, model flexibility, observability, and room to evolve.",
+      "From concept to deployment, we engineer AI-powered products that meet enterprise standards. Whether you need a multi-tenant SaaS platform, an internal knowledge system, or an AI feature for an existing product, we design for scalability, observability, and long-term maintainability. Every system is built with model flexibility so you are never locked into a single provider.",
     useCases: [
-      "AI-native product MVPs",
-      "RAG and knowledge products",
-      "Multi-tenant SaaS applications",
-      "AI features for existing products",
+      "AI-native SaaS MVPs ready for production users",
+      "Knowledge retrieval and RAG systems for internal teams",
+      "Enterprise AI platforms with role-based access and audit trails",
+      "AI features integrated into existing products",
+      "Custom internal tools and operational dashboards",
     ],
     ctaSubject: "AI SaaS",
   },
 ];
 
-export const operatingPrinciples = [
+export const whySkymavan = [
   {
-    title: "Humans stay in control",
+    title: "Custom engineering, not templates",
     description:
-      "Approval gates, escalation paths, and clear ownership are designed into the workflow from the beginning.",
+      "Every system we build is designed for your specific workflows, data, and constraints. We do not repurpose generic chatbots or copy-paste solutions.",
   },
   {
-    title: "Every run is observable",
+    title: "Human oversight by default",
     description:
-      "Inputs, tool calls, outputs, and exceptions remain inspectable so your team can improve the system with evidence.",
+      "Approval gates, confidence thresholds, and escalation paths are engineered into every workflow. Automation should make teams more capable, not less informed.",
   },
   {
-    title: "Models remain replaceable",
+    title: "Secure by architecture",
     description:
-      "We choose models for the job and keep system boundaries clear, reducing unnecessary dependence on a single provider.",
+      "We treat data security as a design constraint, not a checklist. Authentication, authorization, encryption, and audit trails are part of every system from day one.",
   },
   {
-    title: "Integration is product work",
+    title: "Built to evolve",
     description:
-      "The final mile into your CRM, knowledge base, inbox, or internal platform receives the same care as the AI layer.",
+      "Models change. Requirements shift. We design modular systems with clear boundaries so you can swap models, add integrations, and scale without rebuilding from scratch.",
+  },
+  {
+    title: "Long-term partnership",
+    description:
+      "We stay engaged after launch. Ongoing monitoring, optimization, and support ensure your systems continue to deliver value as your business grows.",
+  },
+] as const;
+
+export const industries = [
+  {
+    title: "Healthcare",
+    description:
+      "Automate patient intake, appointment scheduling, clinical documentation, and compliance reporting while maintaining HIPAA safeguards.",
+  },
+  {
+    title: "Finance",
+    description:
+      "Streamline loan processing, fraud detection alerts, regulatory reporting, and client onboarding with auditable AI workflows.",
+  },
+  {
+    title: "Manufacturing",
+    description:
+      "Connect supply chain data, automate quality control reports, and surface production anomalies before they cause downtime.",
+  },
+  {
+    title: "SaaS",
+    description:
+      "Embed AI features into your product, automate customer onboarding, and build internal tools that reduce operational overhead.",
+  },
+  {
+    title: "Education",
+    description:
+      "Automate admissions processing, personalize learning pathways, and build knowledge systems that make institutional expertise accessible.",
+  },
+  {
+    title: "Real Estate",
+    description:
+      "Automate property listing generation, lead qualification, document processing, and portfolio reporting across multiple systems.",
+  },
+  {
+    title: "Logistics",
+    description:
+      "Optimize route planning, automate shipment tracking updates, and surface delivery exceptions to the right team in real time.",
+  },
+  {
+    title: "Professional Services",
+    description:
+      "Reduce time spent on proposal generation, contract review, timesheet reconciliation, and client reporting with AI-assisted workflows.",
   },
 ] as const;
 
 export const processSteps = [
   {
     index: "01",
-    title: "Discover",
+    title: "Discovery",
     description:
-      "Map the workflow, decisions, systems, and failure conditions worth solving.",
+      "We map the workflow, identify pain points, document existing systems, and define success criteria with your team.",
   },
   {
     index: "02",
-    title: "Prototype",
+    title: "Business Analysis",
     description:
-      "Test the riskiest assumptions with a focused, observable working slice.",
+      "We evaluate ROI, assess data readiness, identify integration points, and define human oversight requirements.",
   },
   {
     index: "03",
-    title: "Build",
+    title: "Architecture",
     description:
-      "Engineer the product, integrations, guardrails, and operating interface.",
+      "We design the system architecture, select models and tools, plan data flows, and document security and compliance boundaries.",
   },
   {
     index: "04",
-    title: "Optimize",
+    title: "Prototype",
     description:
-      "Measure real use, tune quality and cost, and expand only where the evidence points.",
+      "We build a focused working slice to validate assumptions, test model performance, and gather feedback before full development.",
+  },
+  {
+    index: "05",
+    title: "Development",
+    description:
+      "We engineer the production system with proper error handling, observability, approval gates, and integration testing.",
+  },
+  {
+    index: "06",
+    title: "Testing",
+    description:
+      "We validate against real scenarios, test edge cases, measure accuracy and latency, and involve end users in acceptance testing.",
+  },
+  {
+    index: "07",
+    title: "Deployment",
+    description:
+      "We deploy to your infrastructure, configure monitoring and alerts, and provide runbooks for your operations team.",
+  },
+  {
+    index: "08",
+    title: "Optimization",
+    description:
+      "We measure real-world performance, tune model parameters, optimize costs, and expand coverage based on usage patterns.",
+  },
+  {
+    index: "09",
+    title: "Support",
+    description:
+      "We remain available for monitoring, model updates, integration changes, and feature expansion as your business evolves.",
   },
 ] as const;
 
-const pricingDisclaimer =
-  "Starting price. Final scope and investment are confirmed after discovery.";
-
-export const priceTiers: ReadonlyArray<PriceTier> = [
-  {
-    serviceId: "ai-agents",
-    name: "AI Agent Build",
-    qualifier: "from",
-    price: "$3,500",
-    priceValue: 3500,
-    description:
-      "A focused agent for one valuable workflow, with tools, guardrails, and a usable team interface.",
-    inclusions: [
-      "Workflow and tool mapping",
-      "Agent implementation",
-      "Human approval path",
-      "Deployment and handoff",
-    ],
-    disclaimer: pricingDisclaimer,
-  },
-  {
-    serviceId: "automation",
-    name: "Automation Sprint",
-    qualifier: "from",
-    price: "$5,000",
-    priceValue: 5000,
-    description:
-      "An end-to-end automation for a multi-step process spanning your existing systems.",
-    inclusions: [
-      "Process architecture",
-      "API and data integrations",
-      "Exception and approval routing",
-      "Monitoring and documentation",
-    ],
-    disclaimer: pricingDisclaimer,
-  },
-  {
-    serviceId: "ai-saas",
-    name: "AI SaaS MVP",
-    qualifier: "from",
-    price: "$10,000",
-    priceValue: 10000,
-    description:
-      "A launch-ready first product with a clear user journey, dependable AI layer, and scalable foundation.",
-    inclusions: [
-      "Product and system design",
-      "Application development",
-      "AI and data architecture",
-      "Production deployment",
-    ],
-    disclaimer: pricingDisclaimer,
-  },
-];
-
 export const faqItems: ReadonlyArray<FaqItem> = [
   {
-    id: "agent-automation",
-    question: "What can an AI agent automate?",
+    id: "project-timeline",
+    question: "How long does an AI project take?",
     answer:
-      "An AI agent can handle workflows that combine information gathering, judgment, drafting, tool use, and handoffs. Good candidates include research briefs, lead qualification, customer operations, internal support, and document-heavy processes. SkyMavan defines clear boundaries and human approvals so the agent assists the business without becoming an unaccountable black box.",
+      "A focused AI agent or automation can be built in 3–5 weeks. A full SaaS product typically takes 8–14 weeks depending on complexity. We begin with a discovery phase that gives you a clear timeline and investment estimate before any development starts.",
   },
   {
     id: "custom-ai-cost",
     question: "How much does custom AI development cost?",
     answer:
-      "SkyMavan engagements start at $3,500 for a focused AI agent, $5,000 for an automation sprint, and $10,000 for an AI SaaS MVP. These are starting prices rather than fixed quotes. Final investment depends on workflow complexity, integrations, data readiness, interface requirements, and the level of production support confirmed during discovery.",
+      "Skymavan engagements are scoped per project rather than priced on a menu. A focused AI agent starts around $3,500, an automation sprint around $5,000, and a production AI SaaS MVP around $10,000. Final investment is confirmed after discovery when we understand the full scope of workflows, integrations, and requirements.",
   },
   {
-    id: "existing-tools",
-    question: "Can SkyMavan integrate with our current tools?",
+    id: "existing-systems",
+    question: "Can AI integrate with our existing software?",
     answer:
-      "Yes. Integration is treated as core product work rather than an afterthought. SkyMavan can connect AI workflows with existing APIs, CRMs, databases, knowledge systems, communication tools, and internal platforms. Discovery identifies authentication, data ownership, rate limits, failure behavior, and human escalation requirements before the final architecture is committed.",
+      "Yes. Integration is a core part of every engagement. We connect AI workflows with CRMs, ERPs, APIs, databases, communication tools (Slack, email), and internal platforms. Discovery maps every integration point, including authentication, data formats, rate limits, and error handling requirements.",
   },
   {
-    id: "human-control",
-    question: "How do you keep humans in control?",
+    id: "data-security",
+    question: "How do you secure our data?",
     answer:
-      "SkyMavan designs explicit approval gates, confidence thresholds, audit trails, escalation paths, and permission boundaries around each workflow. The system shows what it received, which tools it used, what it produced, and where a person must decide. This makes automation easier to supervise, improve, and trust in day-to-day operations.",
+      "Data security is designed into every system from the start. We use encryption at rest and in transit, role-based access control, audit logging, and never train public models on your data. Systems can be deployed on your own infrastructure or in your cloud account if required.",
+  },
+  {
+    id: "ai-models",
+    question: "Which AI models do you use?",
+    answer:
+      "We select models based on the specific requirements of each task. We work with OpenAI, Anthropic, Gemini, and open-source models, and design systems with model flexibility so you can switch providers without rebuilding your workflows.",
   },
   {
     id: "post-launch-support",
     question: "Do you provide support after launch?",
     answer:
-      "Ongoing optimization can be included after the initial build. Support is scoped around real operating needs such as quality review, prompt and model tuning, cost monitoring, new integrations, incident response, and feature expansion. The handoff always includes documentation and ownership clarity, whether SkyMavan continues operating the system or your internal team takes over.",
+      "Yes. We offer ongoing monitoring, model tuning, cost optimization, and support as your usage grows. The handoff includes complete documentation, runbooks, and ownership clarity so your team can operate independently or with our continued assistance.",
+  },
+  {
+    id: "self-hosting",
+    question: "Can we host the solution ourselves?",
+    answer:
+      "Absolutely. Systems are designed to be deployable in your own cloud environment or on-premises infrastructure. We provide Docker containers, deployment scripts, configuration guides, and transition support for your operations team.",
   },
 ];

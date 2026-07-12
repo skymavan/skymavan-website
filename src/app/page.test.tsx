@@ -26,12 +26,12 @@ describe("Home", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: "AI systems that move real work forward.",
+        name: "AI systems that solve operational problems.",
       }),
     ).toBeVisible();
     expect(
       screen.getByText(
-        "SkyMavan builds dependable agents, connected automations, and AI products—with observable decisions and people in control.",
+        "Skymavan builds custom AI agents, connected automations, and production AI software for teams that need reliable systems, not experimental chatbots. Every solution includes human oversight, secure integrations, and a clear path to measurable results.",
       ),
     ).toBeVisible();
     expect(screen.getAllByRole("link", { name: "Start a project" })[0]).toHaveAttribute(
