@@ -57,7 +57,7 @@ describe("Home", () => {
     render(<Home />);
 
     for (const [label, href] of [
-      ["LinkedIn", "https://www.linkedin.com/in/skymavanai"],
+      ["LinkedIn", "https://www.linkedin.com/company/skymavanai"],
       ["Instagram", "https://www.instagram.com/skymavanai"],
       ["X", "https://x.com/Skymavanai"],
     ] as const) {

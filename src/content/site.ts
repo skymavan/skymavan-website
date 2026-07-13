@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
   socialLinks: [
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/skymavanai",
+      href: "https://www.linkedin.com/company/skymavanai",
       icon: "linkedin",
     },
     {

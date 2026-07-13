@@ -19,7 +19,7 @@ describe("site content", () => {
     expect(siteConfig.socialLinks).toEqual([
       {
         label: "LinkedIn",
-        href: "https://www.linkedin.com/in/skymavanai",
+        href: "https://www.linkedin.com/company/skymavanai",
         icon: "linkedin",
       },
       {
