@@ -86,6 +86,16 @@ export function SiteHeader() {
                     <a
                       className="rounded-lg px-3 py-4 font-heading text-2xl font-semibold tracking-[-0.025em] hover:bg-muted focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
                       href={item.href}
+                      onClick={(event) => {
+                        if (!item.href.startsWith("#")) return;
+                        event.preventDefault();
+                        const targetId = item.href.slice(1);
+                        window.location.hash = targetId;
+                        document.getElementById(targetId)?.scrollIntoView({
+                          block: "start",
+                          behavior: "smooth",
+                        });
+                      }}
                     >
                       {item.label}
                     </a>

@@ -39,4 +39,13 @@ describe("SiteHeader", () => {
     await user.click(screen.getByRole("button", { name: "Open navigation" }));
     expect(screen.getByRole("dialog", { name: "Site navigation" })).toBeVisible();
   });
+
+  it("routes mobile navigation links to the matching section hash", async () => {
+    const user = userEvent.setup();
+    render(<SiteHeader />);
+
+    await user.click(screen.getByRole("button", { name: "Open navigation" }));
+    await user.click(screen.getByRole("link", { name: "Services" }));
+    expect(window.location.hash).toBe("#services");
+  });
 });
