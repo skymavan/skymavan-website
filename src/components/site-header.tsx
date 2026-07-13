@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { ArrowUpRight, Menu } from "lucide-react";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -16,6 +16,8 @@ import {
 import { navigation, siteConfig } from "@/content/site";
 
 export function SiteHeader() {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
   return (
     <header className="site-header">
       <div className="site-shell header-shell liquid-glass flex h-[4.5rem] items-center justify-between gap-4 rounded-full px-4 sm:px-6">
@@ -50,7 +52,7 @@ export function SiteHeader() {
             </a>
           </Button>
 
-          <Sheet>
+          <Sheet open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="outline"
@@ -82,34 +84,34 @@ export function SiteHeader() {
                 aria-label="Mobile primary"
               >
                 {navigation.map((item) => (
-                  <SheetClose key={item.href} asChild>
-                    <a
-                      className="rounded-lg px-3 py-4 font-heading text-2xl font-semibold tracking-[-0.025em] hover:bg-muted focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
-                      href={item.href}
-                      onClick={(event) => {
-                        if (!item.href.startsWith("#")) return;
-                        event.preventDefault();
-                        const targetId = item.href.slice(1);
-                        window.location.hash = targetId;
+                  <a
+                    key={item.href}
+                    className="rounded-lg px-3 py-4 font-heading text-2xl font-semibold tracking-[-0.025em] hover:bg-muted focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+                    href={item.href}
+                    onClick={(event) => {
+                      if (!item.href.startsWith("#")) return;
+                      event.preventDefault();
+                      setMobileNavOpen(false);
+                      const targetId = item.href.slice(1);
+                      window.history.pushState(null, "", item.href);
+                      window.setTimeout(() => {
                         document.getElementById(targetId)?.scrollIntoView({
                           block: "start",
                           behavior: "smooth",
                         });
-                      }}
-                    >
-                      {item.label}
-                    </a>
-                  </SheetClose>
+                      }, 0);
+                    }}
+                  >
+                    {item.label}
+                  </a>
                 ))}
               </nav>
               <div className="mt-auto p-4">
-                <SheetClose asChild>
-                  <Button asChild size="lg" className="h-12 w-full">
-                    <a href={siteConfig.bookingUrl} target="_blank" rel="noopener noreferrer">
-                      Book a meeting
-                    </a>
-                  </Button>
-                </SheetClose>
+                <Button asChild size="lg" className="h-12 w-full">
+                  <a href={siteConfig.bookingUrl} target="_blank" rel="noopener noreferrer">
+                    Book a meeting
+                  </a>
+                </Button>
               </div>
             </SheetContent>
           </Sheet>
