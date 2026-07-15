@@ -27,5 +27,5 @@ Constraints: Preserve large negative space on the left. Do not place the robot o
 
 ## Social image
 
-- `src/app/opengraph-image.png`
+- `public/opengraph-image.jpg` (1200×630, JPEG) — referenced from `src/app/layout.tsx`.
 - Source: unchanged in this pass; the homepage hero artwork is updated independently.

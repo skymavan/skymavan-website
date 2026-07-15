@@ -326,7 +326,7 @@
 }
 
 .hero-title em {
-  color: hsl(var(--foreground) / 0.62);
+  color: hsl(var(--signal));
   font-weight: 400;
 }
 
