@@ -238,6 +238,18 @@
   color: hsl(var(--foreground));
 }
 
+.nav-link-active {
+  color: hsl(var(--foreground));
+}
+
+.nav-underline {
+  position: absolute;
+  inset: auto 0 -0.45rem;
+  height: 1px;
+  background: hsl(var(--signal));
+  pointer-events: none;
+}
+
 .nav-link:hover::after {
   scale: 1 1;
   transform-origin: left;
@@ -316,6 +328,21 @@
 .hero-title em {
   color: hsl(var(--foreground) / 0.62);
   font-weight: 400;
+}
+
+.hero-emphasis {
+  font-style: italic;
+}
+
+.hero-word-wrap {
+  display: inline-block;
+  margin-right: 0.26em;
+  white-space: nowrap;
+}
+
+.hero-word {
+  display: inline-block;
+  will-change: transform;
 }
 
 .hero-description {
@@ -566,14 +593,16 @@
   padding: 0 0 2.25rem 2.25rem;
 }
 
-.system-stage:not(:last-child)::before {
+.system-rail {
   position: absolute;
-  content: "";
+  z-index: 0;
   top: 1rem;
   bottom: 0;
   left: 0.28rem;
   width: 1px;
   background: hsl(var(--signal) / 0.45);
+  transform-origin: top center;
+  will-change: transform;
 }
 
 .system-stage-head {
@@ -599,6 +628,17 @@
   border-color: hsl(var(--human));
   background: hsl(var(--human));
   box-shadow: 0 0 0 0.4rem hsl(var(--human) / 0.12);
+  animation: human-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes human-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0.4rem hsl(var(--human) / 0.12);
+  }
+  50% {
+    box-shadow: 0 0 0 0.6rem hsl(var(--human) / 0.22);
+  }
 }
 
 .system-stage-human .system-stage-index {
@@ -678,6 +718,26 @@
   padding: 0;
   border-top: 1px solid hsl(var(--border));
   list-style: none;
+}
+
+.process-list-wrap {
+  position: relative;
+}
+
+.process-progress-rail {
+  position: absolute;
+  z-index: 1;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--signal) / 0.2) 0%,
+    hsl(var(--signal)) 100%
+  );
+  transform-origin: left center;
+  opacity: 0.85;
 }
 
 .process-list li {
@@ -815,6 +875,17 @@
   line-height: 0.93;
 }
 
+.closing-word-wrap {
+  display: inline-block;
+  margin-right: 0.2em;
+  white-space: nowrap;
+}
+
+.closing-word {
+  display: inline-block;
+  will-change: transform;
+}
+
 .closing-link {
   display: inline-flex;
   min-height: 3.25rem;
@@ -934,30 +1005,9 @@
   height: 1.05rem;
 }
 
-@keyframes fade-rise {
-  from {
-    transform: translateY(24px);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
-  }
-
-  .hero-title {
-    animation: fade-rise 0.8s ease-out both;
-  }
-
-  .hero-description {
-    animation: fade-rise 0.8s ease-out 0.2s both;
-  }
-
-  .hero-actions {
-    animation: fade-rise 0.8s ease-out 0.4s both;
   }
 }
 
