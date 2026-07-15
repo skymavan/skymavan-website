@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       "Skymavan builds custom AI agents, workflow automation, and AI software for enterprise operations.",
     images: [
       {
-        url: `${siteConfig.canonicalUrl}og.png`,
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Skymavan — Custom AI systems for business operations",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "Skymavan | Custom AI Agents & Automation",
     description:
       "Custom AI agents, workflow automation, and AI software built for business-critical operations.",
-    images: [`${siteConfig.canonicalUrl}og.png`],
+    images: ["/opengraph-image.png"],
   },
 };
 
