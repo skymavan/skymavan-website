@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "cross-env NODE_ENV=production next build",
+    "prebuild": "node scripts/generate-og.cjs",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
@@ -19,6 +20,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.24.0",
+    "motion": "^12.42.2",
     "next": "16.2.10",
     "radix-ui": "^1.6.2",
     "react": "19.2.4",

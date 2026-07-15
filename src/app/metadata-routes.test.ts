@@ -13,6 +13,7 @@ describe("metadata routes", () => {
     expect(sitemap()).toEqual([
       expect.objectContaining({
         url: "https://skymavan.com/",
+        lastModified: expect.any(Date),
         changeFrequency: "monthly",
         priority: 1,
       }),

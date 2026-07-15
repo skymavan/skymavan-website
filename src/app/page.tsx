@@ -1,16 +1,20 @@
 import Image from "next/image";
-import { ArrowDownRight, ArrowRight, ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 
 import { ContactForm } from "@/components/contact-form";
+import { ClosingCta } from "@/components/closing-cta";
 import { FaqSection } from "@/components/faq-section";
+import { HeroCopy } from "@/components/hero-copy";
+import { HeroRoute } from "@/components/hero-route";
 import { HeroVisual } from "@/components/hero-visual";
+import { PrincipleList } from "@/components/principle-list";
+import { ProcessList } from "@/components/process-list";
+import { ServiceList } from "@/components/service-list";
 import { SiteHeader } from "@/components/site-header";
 import { SystemRoute } from "@/components/system-route";
-import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/motion/reveal";
 import {
   industries,
-  processSteps,
-  services,
   siteConfig,
   whySkymavan,
 } from "@/content/site";
@@ -31,88 +35,22 @@ export default function Home() {
         <section id="top" className="hero-section" aria-labelledby="hero-title">
           <HeroVisual />
           <div className="site-shell hero-inner">
-            <div className="hero-copy">
-              <p className="eyebrow">AI Agents · Workflow Automation · AI Software</p>
-              <h1 id="hero-title" className="hero-title">
-                AI systems that <em>solve operational problems.</em>
-              </h1>
-              <p className="hero-description">
-                Skymavan builds custom AI agents, connected automations, and
-                production AI software for teams that need reliable systems, not
-                experimental chatbots. Every solution includes human oversight,
-                secure integrations, and a clear path to measurable results.
-              </p>
-              <div className="hero-actions">
-                <Button
-                  asChild
-                  size="lg"
-                  className="liquid-glass hero-primary-action rounded-full text-foreground"
-                >
-                  <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
-                    Book a meeting <ArrowUpRight aria-hidden="true" />
-                  </a>
-                </Button>
-                <a href="#services" className="hero-secondary-action">
-                  See what we build <ArrowDownRight aria-hidden="true" />
-                </a>
-              </div>
-            </div>
+            <HeroCopy bookingUrl={bookingUrl} />
           </div>
-          <ol className="site-shell hero-route" aria-label="Hero system route">
-            <li>
-              <span aria-hidden="true">01</span>
-              <strong>Input</strong>
-            </li>
-            <li>
-              <span aria-hidden="true">02</span>
-              <strong>Reason</strong>
-            </li>
-            <li className="hero-route-human">
-              <span aria-hidden="true">03</span>
-              <strong>Human approval</strong>
-            </li>
-            <li>
-              <span aria-hidden="true">04</span>
-              <strong>Act</strong>
-            </li>
-          </ol>
+          <HeroRoute />
         </section>
 
         <section id="services" className="section-pad" aria-labelledby="services-title">
           <div className="site-shell">
-            <SectionHeading
-              eyebrow="What we build"
-              title="Solutions that solve operational problems."
-              description="Every engagement starts with a business problem, not a technology choice. We design the right combination of AI, automation, and human oversight around the outcome you need."
-              id="services-title"
-            />
-            <div className="service-list">
-              {services.map((service) => (
-                <article key={service.id} id={service.id} className="service-row">
-                  <div className="service-index">{service.index}</div>
-                  <div>
-                    <h3>{service.title}</h3>
-                    <p>{service.description}</p>
-                    <a
-                      href={bookingUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-link"
-                    >
-                      Book a meeting about {service.shortTitle.toLowerCase()}
-                      <ArrowRight aria-hidden="true" />
-                    </a>
-                  </div>
-                  <ul aria-label={`${service.title} use cases`}>
-                    {service.useCases.map((useCase) => (
-                      <li key={useCase}>
-                        <span aria-hidden="true" /> {useCase}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
+            <Reveal>
+              <SectionHeading
+                eyebrow="What we build"
+                title="Solutions that solve operational problems."
+                description="Every engagement starts with a business problem, not a technology choice. We design the right combination of AI, automation, and human oversight around the outcome you need."
+                id="services-title"
+              />
+            </Reveal>
+            <ServiceList bookingUrl={bookingUrl} />
           </div>
         </section>
 
@@ -123,7 +61,7 @@ export default function Home() {
               <SystemRoute />
             </div>
 
-            <div className="operations-copy">
+            <Reveal className="operations-copy">
               <p className="eyebrow">Why Skymavan</p>
               <h2 id="why-title">
                 Engineering-grade AI for real operations.
@@ -133,76 +71,58 @@ export default function Home() {
                 Every workflow we build includes human checkpoints, secure data
                 handling, and a clear upgrade path as your needs evolve.
               </p>
-              <div className="principle-list">
-                {whySkymavan.map((principle) => (
-                  <article key={principle.title}>
-                    <h3>{principle.title}</h3>
-                    <p>{principle.description}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
+              <PrincipleList items={whySkymavan} />
+            </Reveal>
           </div>
         </section>
 
         <section id="industries" className="section-pad" aria-labelledby="industries-title">
           <div className="site-shell">
-            <SectionHeading
-              eyebrow="Who we help"
-              title="Industry experience that accelerates delivery."
-              description="We have built AI systems for healthcare, finance, manufacturing, SaaS, and more. Each industry has its own compliance requirements, data patterns, and operational constraints—we design for them from day one."
-              id="industries-title"
-            />
-            <div className="principle-list">
-              {industries.map((industry) => (
-                <article key={industry.title}>
-                  <h3>{industry.title}</h3>
-                  <p>{industry.description}</p>
-                </article>
-              ))}
-            </div>
+            <Reveal>
+              <SectionHeading
+                eyebrow="Who we help"
+                title="Industry experience that accelerates delivery."
+                description="We have built AI systems for healthcare, finance, manufacturing, SaaS, and more. Each industry has its own compliance requirements, data patterns, and operational constraints—we design for them from day one."
+                id="industries-title"
+              />
+            </Reveal>
+            <PrincipleList items={industries} />
           </div>
         </section>
 
         <section id="process" className="section-pad" aria-labelledby="process-title">
           <div className="site-shell">
-            <SectionHeading
-              eyebrow="How we work"
-              title="A repeatable engineering process."
-              description="Nine stages from discovery to ongoing support. Every phase produces a tangible outcome, and every decision is reversible until the next phase confirms it."
-              id="process-title"
-            />
-            <ol className="process-list">
-              {processSteps.map((step) => (
-                <li key={step.title}>
-                  <span className="process-number">{step.index}</span>
-                  <div>
-                    <h3>{step.title}</h3>
-                    <p>{step.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+            <Reveal>
+              <SectionHeading
+                eyebrow="How we work"
+                title="A repeatable engineering process."
+                description="Nine stages from discovery to ongoing support. Every phase produces a tangible outcome, and every decision is reversible until the next phase confirms it."
+                id="process-title"
+              />
+            </Reveal>
+            <ProcessList />
           </div>
         </section>
 
         <section id="faq" className="section-pad" aria-labelledby="faq-title">
           <div className="site-shell faq-grid">
-            <div>
-              <p className="eyebrow">Questions, answered</p>
-              <h2 id="faq-title">Practical answers about AI development.</h2>
-              <p className="section-lede">
-                Timelines, costs, security, integration, and what happens after
-                launch—addressed directly, without marketing language.
-              </p>
-            </div>
+            <Reveal>
+              <div>
+                <p className="eyebrow">Questions, answered</p>
+                <h2 id="faq-title">Practical answers about AI development.</h2>
+                <p className="section-lede">
+                  Timelines, costs, security, integration, and what happens after
+                  launch—addressed directly, without marketing language.
+                </p>
+              </div>
+            </Reveal>
             <FaqSection />
           </div>
         </section>
 
         <section id="contact" className="contact-section section-pad" aria-labelledby="contact-title">
           <div className="site-shell contact-grid">
-            <div className="contact-intro">
+            <Reveal className="contact-intro">
               <p className="eyebrow">Book a meeting</p>
               <h2 id="contact-title">Tell us about the operational problem you want to solve.</h2>
               <p className="section-lede">
@@ -214,30 +134,18 @@ export default function Home() {
               <a className="contact-email" href={`mailto:${siteConfig.email}`}>
                 {siteConfig.email} <ArrowUpRight aria-hidden="true" />
               </a>
-            </div>
+            </Reveal>
             <div className="contact-form-wrap">
               <ContactForm />
             </div>
           </div>
         </section>
 
-        <section className="closing-section" aria-label="Closing call to action">
-          <div className="site-shell closing-inner">
-            <p>One well-built system can change the trajectory of an entire operation.</p>
-            <a
-              href={bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="closing-link"
-            >
-              Book a meeting <ArrowUpRight aria-hidden="true" />
-            </a>
-          </div>
-        </section>
+        <ClosingCta bookingUrl={bookingUrl} />
       </main>
 
       <footer className="site-footer">
-        <div className="site-shell footer-grid">
+        <Reveal className="site-shell footer-grid">
           <div className="footer-brand-wrap">
             <a href="#top" className="footer-brand flex items-center gap-2">
               <Image src="/media/logo.png" alt="" width={56} height={56} className="shrink-0" />
@@ -283,7 +191,7 @@ export default function Home() {
           <div className="footer-legal">
             <span>© 2026 SkyMavan. All rights reserved.</span>
           </div>
-        </div>
+        </Reveal>
       </footer>
 
       <script

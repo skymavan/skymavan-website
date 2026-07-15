@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { ArrowUpRight, Menu } from "lucide-react";
-import { useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -15,11 +16,48 @@ import {
 } from "@/components/ui/sheet";
 import { navigation, siteConfig } from "@/content/site";
 
+const SECTION_IDS = navigation.map((item) => item.href.slice(1));
+
 export function SiteHeader() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const reduce = useReducedMotion();
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (typeof IntersectionObserver === "undefined") return;
+
+    const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(
+      (el): el is HTMLElement => el !== null,
+    );
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) {
+          setActiveId(visible.target.id);
+        }
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.2, 0.5, 1] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  const headerInitial = reduce ? false : { opacity: 0, y: "-110%" };
+  const headerAnimate = reduce ? undefined : { opacity: 1, y: 0 };
 
   return (
-    <header className="site-header">
+    <motion.header
+      className="site-header"
+      initial={headerInitial}
+      animate={headerAnimate}
+      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+    >
       <div className="site-shell header-shell liquid-glass flex h-[4.5rem] items-center justify-between gap-4 rounded-full px-4 sm:px-6">
         <a
           href="#top"
@@ -33,11 +71,26 @@ export function SiteHeader() {
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
-          {navigation.map((item) => (
-            <a key={item.href} className="nav-link" href={item.href}>
-              {item.label}
-            </a>
-          ))}
+          {navigation.map((item) => {
+            const itemSection = item.href.slice(1);
+            const isActive = activeId === itemSection;
+            return (
+              <a
+                key={item.href}
+                className={`nav-link ${isActive ? "nav-link-active" : ""}`}
+                href={item.href}
+              >
+                {item.label}
+                {isActive && !reduce && (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="nav-underline"
+                    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                  />
+                )}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -117,6 +170,6 @@ export function SiteHeader() {
           </Sheet>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }
