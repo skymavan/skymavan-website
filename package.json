@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "cross-env NODE_ENV=production next build",
-    "prebuild": "node scripts/generate-og.cjs",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
